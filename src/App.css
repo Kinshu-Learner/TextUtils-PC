@@ -1,3 +1,32 @@
+body{
+  background-color: #14120d;
+  color: #f8d98b;
+}
+
+h1{
+  font-size: xx-large;
+}
+h2{
+  font-size: x-large;
+}
+h3{
+  font-size: 20px;
+}
+
+textarea#exampleFormControlTextarea1dark{
+  background: rgb(53, 50, 38);
+  color:#f8d98b;
+}
+
+textarea#exampleFormControlTextarea1light{
+  background-color: #ffe8ae;
+  color: #14120d;
+}
+
+.navbar-light{
+  color:black;
+}
+
 .App {
   text-align: center;
 }
