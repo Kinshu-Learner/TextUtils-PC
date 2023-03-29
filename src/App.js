@@ -5,12 +5,18 @@ import Accordian from './Components/Accordian';
 import { useState } from 'react';
 import Alert from './Components/Alert';
 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
 function App() {
 
   const [mode, setMode] = useState('dark');
   const [alert, setAlert] = useState(null);
 
-  const showAlert = (message, type)=>{
+  const showAlert = (message, type) => {
     setAlert({
       mssg: message,
       type: type
@@ -20,29 +26,33 @@ function App() {
     }, 1500);
   };
 
-  const toggleMode = ()=>{
-    if(mode === 'dark'){
+  const toggleMode = () => {
+    if (mode === 'dark') {
       setMode('light');
       document.body.style.backgroundColor = "#fff7e4";
-      document.body.style.color="black";
-      showAlert("Light Mode Was Enabled!","success")
+      document.body.style.color = "black";
+      showAlert("Light Mode Was Enabled!", "success")
       document.title = 'TextUtils-Light'
     }
-    else{
+    else {
       setMode('dark');
       document.body.style.backgroundColor = "#14120d";
-      document.body.style.color="#f8d98b";
-      showAlert("Dark Mode Was Enabled!","success")
+      document.body.style.color = "#f8d98b";
+      showAlert("Dark Mode Was Enabled!", "success")
       document.title = 'TextUtils-Dark'
     }
   };
 
   return (
     <>
-    <Navbar title = "TextUtils" home="TextHome" mode={mode} toggleMode={toggleMode}/>
-    <Alert alert={alert}/>
-    <Accordian mode={mode} showAlert={showAlert}/>
-    <TextArea mode={mode} showAlert={showAlert}/>
+      <Router>
+        <Navbar title="TextUtils" home="TextHome" mode={mode} toggleMode={toggleMode} />
+        <Alert alert={alert} />
+        <Routes>
+          <Route path="/" element={<TextArea mode={mode} showAlert={showAlert} />} />
+          <Route path="/about" element={<Accordian mode={mode} showAlert={showAlert} />} />
+        </Routes>
+      </Router>
     </>
   );
 }
