@@ -24,13 +24,18 @@ export default function TextArea(props) {
         props.showAlert("Extra Spaces Removed!","success");
     };
 
+    const handleCopy = ()=>{
+        navigator.clipboard.writeText(Text);
+        props.showAlert("Copied To Clipboard!", "success");
+    };
+
     const handleOnChange = (event) => {
         setText(event.target.value)
     };
 
     let NoOfWords = (Text)=>{
-        let wordCount = Text.split(' ').length;
-        Text.split(' ').forEach((word)=>{
+        let wordCount = Text.split(/\s+/).length;
+        Text.split(/\s+/).forEach((word)=>{
             if(word.length === 0){
                 wordCount -= 1;
             }
@@ -47,8 +52,9 @@ export default function TextArea(props) {
                 </div>
                 <button type="button" disabled = {Text.length === 0} className={`btn ${props.mode==='dark'?'btn-outline-warning':'btn-outline-primary'} me-2 my-1`} onClick={handleUpClick}>Convert to Uppercase</button>
                 <button type="button" disabled = {Text.length === 0} className={`btn ${props.mode==='dark'?'btn-outline-warning':'btn-outline-primary'} me-2 my-1`} onClick={handleLowClick}>Convert to Lowercase</button>
-                <button type="button" disabled = {Text.length === 0} className={`btn ${props.mode==='dark'?'btn-outline-warning':'btn-outline-primary'} me-2 my-1`} onClick={handleClearClick}>Clear Text</button>
+                <button type="button" disabled = {Text.length === 0} className={`btn ${props.mode==='dark'?'btn-outline-warning':'btn-outline-primary'} me-2 my-1`} onClick={handleCopy}>Copy Text</button>
                 <button type="button" disabled = {Text.length === 0} className={`btn ${props.mode==='dark'?'btn-outline-warning':'btn-outline-primary'} me-2 my-1`} onClick={handleSpaceClick}>Remove Extra Spaces</button>
+                <button type="button" disabled = {Text.length === 0} className={`btn ${props.mode==='dark'?'btn-outline-warning':'btn-outline-primary'} me-2 my-1`} onClick={handleClearClick}>Clear Text</button>
             </div>
             <div className="container">
                 <h2 className="mt-4 mb-2"><strong>Text Summary</strong></h2>
