@@ -20,10 +20,7 @@ export default function Navbar(props) {
                                 <Link className="nav-link" to="/about">About</Link>
                             </li>
                         </ul>
-                        <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button type="button" className={`btn ${props.mode==='light'?'btn-warning':'btn-outline-warning'}`}>Search</button>
-                        </form>
+                        
                     </div>
                 </div>
                 <div className="form-check form-switch mx-2 ms-4">
