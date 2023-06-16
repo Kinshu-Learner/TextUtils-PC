@@ -1,7 +1,6 @@
 import './App.css';
 import Navbar from './Components/Navbar';
 import TextArea from './Components/TextArea';
-import Accordian from './Components/Accordian';
 import { useState } from 'react';
 import Alert from './Components/Alert';
 
@@ -50,7 +49,6 @@ function App() {
         <Alert alert={alert} />
         <Routes>
           <Route path="/" element={<TextArea mode={mode} showAlert={showAlert} />} />
-          <Route path="/about" element={<Accordian mode={mode} showAlert={showAlert} />} />
         </Routes>
       </Router>
     </>
