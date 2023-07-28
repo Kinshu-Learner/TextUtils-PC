@@ -34,4 +34,8 @@ TextUtils is on `Dark Mode` by default, but it can be toggled to `Light Mode` fr
 
 ![Light](/Screenshots/lightmode1.png)
 
-**Feel free to contribute to this project by adding *new functionalities or* making changes to existing functionalities :D**
+**Feel free to contribute to this project by adding *new functionalities or* making changes to existing functionalities 😄**
+
+## License
+
+ImageAI is released under the [MIT License](LICENSE), granting you the freedom to use, modify, and distribute the software.
